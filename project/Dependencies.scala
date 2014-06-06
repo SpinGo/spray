@@ -13,7 +13,8 @@ object Dependencies {
   def runtime   (deps: ModuleID*): Seq[ModuleID] = deps map (_ % "runtime")
   def container (deps: ModuleID*): Seq[ModuleID] = deps map (_ % "container")
 
-  val scalaReflect  = "org.scala-lang"                          %   "scala-reflect"               % "2.11.0"
+  def scalaReflect(version: String) =
+    "org.scala-lang"                          %   "scala-reflect"               % version
   val akkaActor     = "com.typesafe.akka"                       %%  "akka-osgi"                   % "2.3.2"
   val akkaSlf4j     = "com.typesafe.akka"                       %%  "akka-slf4j"                  % "2.3.2"
   val akkaTestKit   = "com.typesafe.akka"                       %%  "akka-testkit"                % "2.3.2"

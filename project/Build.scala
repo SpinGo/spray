@@ -96,7 +96,7 @@ object Build extends Build {
     .dependsOn(sprayUtil, sprayHttp)
     .settings(sprayModuleSettings: _*)
     .settings(osgiSettings(exports = Seq("spray.io")): _*)
-    .settings(libraryDependencies ++= provided(akkaActor, scalaReflect))
+    .settings(libraryDependencies ++= provided(akkaActor, scalaReflect(scalaVersion.value)))
 
 
   lazy val sprayIOTests = Project("spray-io-tests", file("spray-io-tests"))
@@ -154,7 +154,7 @@ object Build extends Build {
     .settings(sprayVersionConfGeneration: _*)
     .settings(osgiSettings(exports = Seq("spray.util", "akka.spray")): _*)
     .settings(libraryDependencies ++=
-      provided(akkaActor, scalaReflect) ++
+      provided(akkaActor, scalaReflect(scalaVersion.value)) ++
       test(akkaTestKit, specs2)
     )
 
